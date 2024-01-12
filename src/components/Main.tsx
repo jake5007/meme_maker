@@ -102,27 +102,32 @@ const Main = () => {
           />
         </button>
       </section>
-      {loading && <Loading />}
-      <div
-        id="meme"
-        className="relative container mx-auto flex w-full justify-center"
-      >
-        <p className="meme-text absolute top-2 text-5xl uppercase tracking-wide">
-          {topText}
-        </p>
-        <img src={imgSrc} alt="random meme image" />
-        <p className="meme-text absolute bottom-3 text-5xl uppercase tracking-wide">
-          {bottomText}
-        </p>
-      </div>
-      <div className="flex justify-center w-full mt-5">
-        <button
-          className="w-full sm:w-auto py-4 px-8 font-bold text-xl tracking-wider bg-gradient-to-br from-[#FF8C00] via-[#FFB74D] to-[#FFD180] rounded-lg hover:shadow-[0_0_20px_10px_rgb(251,146,60,0.5)]"
-          onClick={handleSaveImg}
-        >
-          Save
-        </button>
-      </div>
+      {loading ? (
+        <Loading />
+      ) : (
+        <>
+          <div
+            id="meme"
+            className="relative container mx-auto flex w-full justify-center"
+          >
+            <p className="meme-text absolute top-2 text-5xl uppercase tracking-wide">
+              {topText}
+            </p>
+            <img src={imgSrc} alt="random meme image" />
+            <p className="meme-text absolute bottom-3 text-5xl uppercase tracking-wide">
+              {bottomText}
+            </p>
+          </div>
+          <div className="flex justify-center w-full mt-5">
+            <button
+              className="w-full sm:w-auto py-4 px-8 font-bold text-xl tracking-wider bg-gradient-to-br from-[#FF8C00] via-[#FFB74D] to-[#FFD180] rounded-lg hover:shadow-[0_0_20px_10px_rgb(251,146,60,0.5)]"
+              onClick={handleSaveImg}
+            >
+              Save
+            </button>
+          </div>
+        </>
+      )}
     </main>
   );
 };
