@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import html2canvas from "html2canvas";
 import dice from "/icon-dice.svg";
+import Loading from "./Loading";
 
 const getData = async () => {
   try {
@@ -35,17 +36,20 @@ const Main = () => {
   const [topText, setTopText] = useState(() => "write");
   const [bottomText, setBottomText] = useState(() => "something");
   const [imgSrc, setImgSrc] = useState("");
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     randImgSetting();
   }, []);
 
   const randImgSetting = async () => {
+    setLoading(true);
     const data = await getData();
     const rand = Math.floor(Math.random() * data.length);
     const randImg = data[rand].blank;
 
     setImgSrc(randImg);
+    setLoading(false);
   };
 
   const handleDiceClick = () => {
@@ -98,6 +102,7 @@ const Main = () => {
           />
         </button>
       </section>
+      {loading && <Loading />}
       <div
         id="meme"
         className="relative container mx-auto flex w-full justify-center"
