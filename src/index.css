@@ -1,0 +1,36 @@
+@import url("https://fonts.googleapis.com/css2?family=Lemon&family=Anton&family=Roboto:wght@400;700&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100%;
+  font-family: "Roboto", sans-serif;
+}
+
+header {
+  font-family: "Lemon", sans-serif;
+}
+
+input {
+  border-radius: 0.5rem;
+  border: 2.5px solid rgb(197, 195, 195);
+  padding: 8px 12px;
+}
+
+input:focus {
+  outline: none;
+}
+
+.meme-text {
+  font-family: "Anton", sans-serif;
+  color: white;
+  text-shadow: -1px 0 1px rgb(0, 0, 0), 0 1px 1px rgb(0, 0, 0),
+    1px 0 1px rgb(0, 0, 0), 0 -1px 1px rgb(0, 0, 0);
+}
